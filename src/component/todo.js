@@ -142,3 +142,71 @@ export default function Todo() {
 
     )
 }
+// clc
+import { useState } from "react";
+import "./styles.css";
+
+ export default function App() {
+  const [val,setVal]=useState("")
+  
+  const onClickHandler=(e)=>
+  {
+    setVal(val.concat(e.target.value))
+  }
+  const onClear=()=>
+  {
+    setVal(" ")
+  }
+
+
+  const calculor =()=>
+  {
+    var EVAL_IS_BAD__AVOID_THIS = eval;
+    setVal(EVAL_IS_BAD__AVOID_THIS(val).toString())
+
+  }
+  return (
+    <div className="App">
+      <h1>calculator</h1>
+     <div>
+       <input type="text" value={val} />
+       </div>
+       <br/>
+
+       <div>
+         <input type="button" value="9" onClick={onClickHandler} />
+         <input type="button" value="8"   onClick={onClickHandler} />
+         <input type="button" value="7"   onClick={onClickHandler} />
+         </div>
+
+         <br/>
+       <div>
+         <input type="button" value="6"   onClick={onClickHandler} />
+         <input type="button" value="5"   onClick={onClickHandler} />
+         <input type="button" value="4"   onClick={onClickHandler} />
+         </div>
+
+         <br/>
+       <div>
+         <input type="button" value="3"   onClick={onClickHandler} />
+         <input type="button" value="2"   onClick={onClickHandler} />
+         <input type="button" value="1"   onClick={onClickHandler} />
+         </div>
+
+         <br/>
+       <div>
+         <input type="button" value="/"   onClick={onClickHandler} />
+         <input type="button" value="+"   onClick={onClickHandler} />
+         <input type="button" value="-"   onClick={onClickHandler} />
+         </div>
+
+         <br/>
+         <div>
+         <input type="button" value="%"   onClick={onClickHandler} />
+         <input type="button" value="C"   onClick={onClear} />
+         <input type="button" value="="   onClick={calculor} />
+         </div>
+    </div>
+  );
+}
+
